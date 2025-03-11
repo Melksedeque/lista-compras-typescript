@@ -37,3 +37,13 @@ const removerItem = (id: string) => {
   const itensAtualizados = itens.filter((item) => item.id !== id);
   salvarItens(itensAtualizados);
 };
+
+// Editando um item pelo ID
+const editarItem = (id: string, novoNome: string) => {
+  const itens = carregarItens();
+  const item = itens.find((item) => item.id === id);
+  if (item) {
+    item.nome = novoNome;
+    salvarItens(itens);
+  }
+};
