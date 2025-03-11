@@ -30,3 +30,10 @@ const adicionarItem = (nome: string) => {
   itens.push(novoItem);
   salvarItens(itens);
 };
+
+// Removendo um item pelo ID
+const removerItem = (id: string) => {
+  const itens = carregarItens();
+  const itensAtualizados = itens.filter((item) => item.id !== id);
+  salvarItens(itensAtualizados);
+};
