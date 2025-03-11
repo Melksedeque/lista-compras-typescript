@@ -16,6 +16,6 @@ const carregarItens = (): Item[] => {
 };
 
 // Salvando itens no localStorage
-const salvarItens = (itens: Item[]) => {
+const salvarItens = (itens: Item[]): void => {
   localStorage.setItem("itens", JSON.stringify(itens));
 };
