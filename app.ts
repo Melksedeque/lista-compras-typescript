@@ -19,3 +19,14 @@ const carregarItens = (): Item[] => {
 const salvarItens = (itens: Item[]): void => {
   localStorage.setItem("itens", JSON.stringify(itens));
 };
+
+// Adicionando um novo item
+const adicionarItem = (nome: string) => {
+  const itens = carregarItens();
+  const novoItem: Item = {
+    id: new Date().toISOString(),
+    nome,
+  };
+  itens.push(novoItem);
+  salvarItens(itens);
+};
