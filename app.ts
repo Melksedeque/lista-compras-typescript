@@ -51,31 +51,30 @@ const editarItem = (id: string, novoNome: string) => {
 // Renderizando a lista de itens
 const renderizarItens = () => {
   const itens = carregarItens();
-  listaItens.innerHTML = '';
-  itens.forEach(item => {
-      const listItem = document.createElement('li');
-      listItem.className = 'list-group-item';
-      listItem.textContent = item.nome;
-      listaItens.appendChild(listItem);
+  listaItens.innerHTML = "";
+  itens.forEach((item) => {
+    const listItem = document.createElement("li");
+    listItem.className = "list-group-item";
+    listItem.textContent = item.nome;
+    listaItens.appendChild(listItem);
 
-      // Adicionando eventos para editar e remover o item
-      listItem.addEventListener('dblclick', () => {
-          const novoNome = prompt('Editar item:', item.nome);
-          if (novoNome !== null) editarItem(item.id, novoNome);
-          renderizarItens();
-      });
-
+    // Adicionando eventos para editar e remover o item
+    listItem.addEventListener("dblclick", () => {
+      const novoNome = prompt("Editar item:", item.nome);
+      if (novoNome !== null) editarItem(item.id, novoNome);
+      renderizarItens();
+    });
   });
 };
 
 // Inicializando a aplicação
-formularioItem.addEventListener('submit', (e) => {
+formularioItem.addEventListener("submit", (e) => {
   e.preventDefault();
   const nome = inputItem.value.trim();
   if (nome) {
-      adicionarItem(nome);
-      inputItem.value = '';
-      renderizarItens();
+    adicionarItem(nome);
+    inputItem.value = "";
+    renderizarItens();
   }
 });
 
