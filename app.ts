@@ -47,3 +47,23 @@ const editarItem = (id: string, novoNome: string) => {
     salvarItens(itens);
   }
 };
+
+// Renderizando a lista de itens
+const renderizarItens = () => {
+  const itens = carregarItens();
+  listaItens.innerHTML = '';
+  itens.forEach(item => {
+      const listItem = document.createElement('li');
+      listItem.className = 'list-group-item';
+      listItem.textContent = item.nome;
+      listaItens.appendChild(listItem);
+
+      // Adicionando eventos para editar e remover o item
+      listItem.addEventListener('dblclick', () => {
+          const novoNome = prompt('Editar item:', item.nome);
+          if (novoNome !== null) editarItem(item.id, novoNome);
+          renderizarItens();
+      });
+
+  });
+};
