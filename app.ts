@@ -67,3 +67,14 @@ const renderizarItens = () => {
 
   });
 };
+
+// Inicializando a aplicação
+formularioItem.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const nome = inputItem.value.trim();
+  if (nome) {
+      adicionarItem(nome);
+      inputItem.value = '';
+      renderizarItens();
+  }
+});
