@@ -78,3 +78,6 @@ formularioItem.addEventListener('submit', (e) => {
       renderizarItens();
   }
 });
+
+// Renderizando itens ao carregar a página
+renderizarItens();
